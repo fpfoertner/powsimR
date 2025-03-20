@@ -695,7 +695,7 @@
     dplyr::arrange(.data$`Summary Statistic`, .data$SumN) %>%
     tidyr::unite("Value", c("Mean", "SE"), sep = "\u00B1") %>%
     dplyr::select(.data$`Summary Statistic`, .data$Samples, .data$Value) %>%
-    tidyr::pivot_wider(id = "Samples", names_from = "Summary Statistic", values_from = "Value")
+    tidyr::pivot_wider(id_cols = "Samples", names_from = "Summary Statistic", values_from = "Value")
 
   summary.tbl <- ggpubr::ggtexttable(tbl.dat,
                                      rows = NULL,
